@@ -1,0 +1,2 @@
+news = "https://ad.nl"
+
