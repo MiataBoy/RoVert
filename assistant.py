@@ -99,6 +99,10 @@ if __name__ == '__main__':
             speak("Google chrome is open now")
             time.sleep(5)
 
+        elif 'spotify' in statement:
+            webbrowser.open_new_tab("spotify:")
+            speak("Opening spotify...")
+
         elif 'open gmail' in statement:
             webbrowser.open_new_tab("https://gmail.com")
             speak("Google Mail open now")
