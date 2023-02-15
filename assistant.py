@@ -12,7 +12,7 @@ from ecapture import ecapture as ec
 import wolframalpha
 import json
 import requests
-from information import example_sources, example_tokens
+from information import sources, tokens
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
