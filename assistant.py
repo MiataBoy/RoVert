@@ -81,10 +81,13 @@ if __name__ == '__main__':
         if 'wikipedia' in statement:
             speak('Searching Wikipedia...')
             statement = statement.replace("wikipedia", "")
-            results = wikipedia.summary(statement, sentences=3)
-            speak("According to Wikipedia")
-            print(results)
-            speak(results)
+            try:
+                results = wikipedia.summary(statement, sentences=3)
+                speak("According to Wikipedia")
+                print(results)
+                speak(results)
+            except wikipedia.PageError:
+                speak('Sorry, but we could not find any pages about this. Try again with another syntax.')
 
         elif 'open youtube' in statement:
             webbrowser.open("https://www.youtube.com")
