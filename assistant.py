@@ -1,72 +1,18 @@
 import ctypes
-
-import speech_recognition as sr
-import pyttsx3
-import datetime
 import wikipedia
 import webbrowser
-import os
 import time
 import subprocess
 from ecapture import ecapture as ec
 import wolframalpha
-import json
 import requests
+from engine import *
 from information import sources, tokens
 
-engine = pyttsx3.init('sapi5')
-voices = engine.getProperty('voices')
-engine.setProperty('voice', 'voices[1].id')
-engine.setProperty('volume', 1.0)
-
-
-def speak(text):
-    engine.say(text)
-    engine.runAndWait()
-
-
-def wishme():
-    hour = datetime.datetime.now().hour
-
-    if 0 <= hour < 12:
-        speak("Hello,Good Morning")
-        print("Hello,Good Morning")
-
-    elif 12 <= hour < 18:
-        speak("Hello,Good Afternoon")
-        print("Hello,Good Afternoon")
-    else:
-        speak("Hello,Good Evening")
-        print("Hello,Good Evening")
-
-
-def takecommand():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening...")
-        typeinput = input("Please type in your command if you'd like to type...")
-        if typeinput:
-            userstatement = typeinput
-        else:
-            audio = recognizer.listen(source)
-
-            try:
-                userstatement = recognizer.recognize_google(audio, language='en-in')
-                print(f"user said:{userstatement}\n")
-
-            except Exception as e:
-                speak("Pardon me, please say that again")
-                print("Caught exception when listening: ", e)
-                return "None"
-        return userstatement
-
-
-print("Loading your AI personal assistant RoVert")
-speak("Loading your AI personal assistant RoVert")
-wishme()
+print("Initiating RoVert... Please wait.")
+speak("Initiating RoVert... Please wait.")
 
 if __name__ == '__main__':
-
     while True:
         speak("Tell me how can I help you now?")
         statement = takecommand().lower()
