@@ -16,10 +16,11 @@ if __name__ == '__main__':
     while True:
         speak("Tell me how can I help you now?")
         statement = takecommand().lower()
-        if statement == 0:
+        print(f"statement: {statement}")
+        if statement == [] or statement == 0:
             continue
 
-        if "good bye" in statement or "ok bye" in statement or "stop" in statement:
+        if "goodbye" in statement or "ok bye" in statement or "stop" in statement:
             speak('your personal assistant RoVert is shutting down,Good bye')
             print('your personal assistant RoVert is shutting down,Good bye')
             break
